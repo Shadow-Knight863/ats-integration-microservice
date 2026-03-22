@@ -1,0 +1,94 @@
+{
+  "C:\\Users\\Shado\\OneDrive\\Desktop\\Projects\\ats-integration\\serverless.yml": {
+    "versionFramework": "4.33.0",
+    "servicePath": "C:\\Users\\Shado\\OneDrive\\Desktop\\Projects\\ats-integration\\serverless.yml",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "ats-integration-service",
+      "provider": {
+        "name": "aws",
+        "runtime": "python3.10",
+        "environment": {
+          "ATS_API_KEY": "<REDACTED>",
+          "ATS_BASE_URL": "${env:ATS_BASE_URL}"
+        }
+      },
+      "functions": {
+        "getJobs": {
+          "handler": "handler.get_jobs",
+          "events": [
+            {
+              "http": {
+                "path": "jobs",
+                "method": "get"
+              }
+            }
+          ]
+        },
+        "createCandidate": {
+          "handler": "handler.create_candidate",
+          "events": [
+            {
+              "http": {
+                "path": "candidates",
+                "method": "post"
+              }
+            }
+          ]
+        },
+        "getApplications": {
+          "handler": "handler.get_applications",
+          "events": [
+            {
+              "http": {
+                "path": "applications",
+                "method": "get"
+              }
+            }
+          ]
+        }
+      },
+      "plugins": [
+        "serverless-offline"
+      ]
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "python3.10",
+      "environment": {
+        "ATS_API_KEY": "<REDACTED>",
+        "ATS_BASE_URL": "${env:ATS_BASE_URL}"
+      }
+    },
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "error": {
+      "message": "Cannot resolve '${env:ATS_API_KEY}' variable at 'provider.environment.ATS_API_KEY'. No value is available for this variable, and no default value was provided. Please check your variable definitions or provide a default value.",
+      "stack": "Error: Cannot resolve '${env:ATS_API_KEY}' variable at 'provider.environment.ATS_API_KEY'. No value is available for this variable, and no default value was provided. Please check your variable definitions or provide a default value.\n    at _ResolverManager.resolve (C:\\Users\\Shado\\.serverless\\releases\\4.33.0\\sf-core\\src\\lib\\resolvers\\manager.js:820:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async _ResolverManager.#handlePlaceholderNode (C:\\Users\\Shado\\.serverless\\releases\\4.33.0\\sf-core\\src\\lib\\resolvers\\manager.js:721:9)\n    at async <anonymous> (C:\\Users\\Shado\\.serverless\\releases\\4.33.0\\sf-core\\src\\lib\\resolvers\\manager.js:596:11)\n    at async processNodeAndHandleCompletion (C:\\Users\\Shado\\.serverless\\releases\\4.33.0\\sf-core\\src\\lib\\resolvers\\graph.js:33:5)",
+      "code": "MISSING_VARIABLE_RESULT"
+    },
+    "serviceRawFile": "service: ats-integration-service\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: python3.10\r\n  environment:\r\n    ATS_API_KEY: ${env:ATS_API_KEY}\r\n    ATS_BASE_URL: ${env:ATS_BASE_URL}\r\n\r\nfunctions:\r\n  getJobs:\r\n    handler: handler.get_jobs\r\n    events:\r\n      - http:\r\n          path: jobs\r\n          method: get\r\n\r\n  createCandidate:\r\n    handler: handler.create_candidate\r\n    events:\r\n      - http:\r\n          path: candidates\r\n          method: post\r\n\r\n  getApplications:\r\n    handler: handler.get_applications\r\n    events:\r\n      - http:\r\n          path: applications\r\n          method: get\r\n\r\nplugins:\r\n  - serverless-offline",
+    "command": [
+      "offline"
+    ],
+    "options": {
+      "debug": "*"
+    },
+    "orgId": "8fd22846-d19a-4c76-b87f-49e84ef6f0b3",
+    "orgName": "shadow11111",
+    "userId": "VPz2qlyDgQWQ1vM0Yb",
+    "userName": "shadow11111",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}
