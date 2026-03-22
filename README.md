@@ -94,3 +94,12 @@ Environment variable handling
 Error handling
 Mock ATS integration
 Postman testing support
+## 📬 Postman Collection
+
+You can import the Postman collection to test APIs easily:
+
+1. Open Postman
+2. Click Import
+3. Select the file: ATS_Integration_APIs.postman_collection.json
+
+This will load all API endpoints with pre-configured requests.
